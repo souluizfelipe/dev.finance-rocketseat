@@ -1,0 +1,27 @@
+.data-table {
+    width: 100%; 
+    border-collapse: initial;
+    border-spacing: 0 0.5rem; 
+    text-align: center;
+}
+
+.data-table-row {
+    background-color: var(--color-first);
+    border: .5rem;
+}
+
+.data-table-head-columns, .data-table-data {
+    padding: 1rem 2rem;
+}
+
+.data-table-body .data-table-row {
+    opacity: .7;
+}
+
+.data-table-body .data-table-row:hover {
+    opacity: 1;
+}
+
+
+
+

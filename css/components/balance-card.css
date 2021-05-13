@@ -1,0 +1,11 @@
+.balance-card {
+    padding: 1.5rem 2rem 2.5rem 1.5rem;
+    background-color: var(--color-first);
+    margin-bottom: 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.balance-card.-second {
+    background-color: var(--color-fifth);
+    color: var(--color-first);
+}

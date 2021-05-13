@@ -1,5 +1,6 @@
 .main-header {
     background-color: var(--color-fourth);
     text-align: center;
-    padding: 2rem;
+    padding-top: 5rem;
+    height: max(14rem, 232px);
 }

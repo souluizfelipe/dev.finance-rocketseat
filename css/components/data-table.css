@@ -1,8 +1,13 @@
+.table-container {
+    display: block;
+    overflow-x: auto;
+}
+
+
 .data-table {
-    width: 100%; 
-    border-collapse: initial;
+    width: 100%;
     border-spacing: 0 0.5rem; 
-    text-align: center;
+    text-align: left; 
 }
 
 .data-table-row {
@@ -21,7 +26,5 @@
 .data-table-body .data-table-row:hover {
     opacity: 1;
 }
-
-
 
 

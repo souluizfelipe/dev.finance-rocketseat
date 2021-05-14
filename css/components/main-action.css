@@ -1,0 +1,13 @@
+.main-action {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.main-action.-add {
+    color: var(--color-fifth);
+    margin-bottom: .5rem;
+}
+
+.main-action.-add:hover {
+    opacity: .8;
+}

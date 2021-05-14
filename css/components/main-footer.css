@@ -1,4 +1,8 @@
 .main-footer {
-    padding: 2rem auto ;
-    background-color: #fff;
+    padding: 4rem  ;
+    text-align: center;
+}
+
+.main-footer .main-logo {
+    color: var(--color-sixth);
 }

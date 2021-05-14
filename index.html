@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components/main-header.css">
     <link rel="stylesheet" href="css/components/main-logo.css">
-    <link rel="stylesheet" href="css/components/main-container.css">
+    <link rel="stylesheet" href="css/components/section-components/main-container.css">
     <link rel="stylesheet" href="css/components/section-components/balance-section.css">
     <link rel="stylesheet" href="css/components/text-components/section-title.css">
     <link rel="stylesheet" href="css/components/balance-card.css">
@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="css/components/main-action.css">
     <link rel="stylesheet" href="css/components/data-table.css">
     <link rel="stylesheet" href="css/components/main-footer.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <header class="main-header">
@@ -56,36 +58,38 @@
         <section class="transaction-section">
             <h2 class="section-title -sr-only">Transações</h2>
             <a class="main-action -add" href="#">+ Nova Transação</a>
-            <table class="data-table">
-                <thead class="data-table-head">
-                    <tr class="data-table-row">
-                        <th class="data-table-head-columns">Descrição</th>
-                        <th class="data-table-head-columns">Valor</th>
-                        <th class="data-table-head-columns">Data</th>
-                        <th class="data-table-head-columns"></th>
-                    </tr>
-                </thead> 
-                <tbody class="data-table-body">
-                    <tr class="data-table-row">
-                        <td class="data-table-data">Luz</td>
-                        <td class="data-table-data">-R$500,00</td>
-                        <td class="data-table-data">23/01/2021</td>
-                        <td class="data-table-data"><a href="#"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
-                    </tr>
-                    <tr class="data-table-row">
-                        <td class="data-table-data">Job</td>
-                        <td class="data-table-data">5000,00</td>
-                        <td class="data-table-data">23/01/2021</td>
-                        <td class="data-table-data"><a href="#"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
-                    </tr>
-                    <tr class="data-table-row">
-                        <td class="data-table-data">Internet</td>
-                        <td class="data-table-data">200,00</td>
-                        <td class="data-table-data">23/01/2021</td>
-                        <td class="data-table-data"><a href="#"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead class="data-table-head">
+                        <tr class="data-table-row">
+                            <th class="data-table-head-columns">Descrição</th>
+                            <th class="data-table-head-columns">Valor</th>
+                            <th class="data-table-head-columns">Data</th>
+                            <th class="data-table-head-columns"></th>
+                        </tr>
+                    </thead> 
+                    <tbody class="data-table-body">
+                        <tr class="data-table-row">
+                            <td class="data-table-data">Luz</td>
+                            <td class="data-table-data">-R$500,00</td>
+                            <td class="data-table-data">23/01/2021</td>
+                            <td class="data-table-data"><a href="#"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
+                        </tr>
+                        <tr class="data-table-row">
+                            <td class="data-table-data">Job</td>
+                            <td class="data-table-data">5000,00</td>
+                            <td class="data-table-data">23/01/2021</td>
+                            <td class="data-table-data"><a href="#"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
+                        </tr>
+                        <tr class="data-table-row">
+                            <td class="data-table-data">Internet</td>
+                            <td class="data-table-data">200,00</td>
+                            <td class="data-table-data">23/01/2021</td>
+                            <td class="data-table-data"><a href="#"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
     <footer class="main-footer">

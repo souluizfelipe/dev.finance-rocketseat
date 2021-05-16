@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components/main-header.css">
     <link rel="stylesheet" href="css/components/main-logo.css">
+    <link rel="stylesheet" href="css/components/text-components/sr-only.css">
     <link rel="stylesheet" href="css/components/section-components/main-container.css">
     <link rel="stylesheet" href="css/components/section-components/balance-section.css">
     <link rel="stylesheet" href="css/components/text-components/section-title.css">
@@ -32,7 +33,7 @@
     </header>
     <main class="main-container">
         <section class="balance-section">
-            <h2 class="section-title -sr-only">Balanço</h2>
+            <h2 class="section-title sr-only">Balanço</h2>
             <div class="balance-card">
                 <div class="card-header">
                     <h3 class="title-card">Entradas</h3>
@@ -56,7 +57,7 @@
             </div>
         </section>
         <section class="transaction-section">
-            <h2 class="section-title -sr-only">Transações</h2>
+            <h2 class="section-title sr-only">Transações</h2>
             <a class="main-action -add" href="#">+ Nova Transação</a>
             <div class="table-container">
                 <table class="data-table">
@@ -91,6 +92,24 @@
                 </table>
             </div>
         </section>
+        <div class="modal-add-transaction">
+            <div class="main-modal">
+                <h2 class="section-title">Nova Transação</h2>
+                <div class="input-group">
+                    <label class="sr-only" for="description">Descrição</label>
+                    <input class="default-input" type="text" name="description" id="description" placeholder="Descrição">
+                </div>
+                <div class="input-group">
+                    <label class="sr-only" for="amount">Descrição</label>
+                    <input class="default-input" type="text" name="amount" id="amount" placeholder="0,00">
+                    <small class="input-small-text">Use o sinal - (negatio) para despesas e  ,(vírgula) para casas decimais</small>
+                </div>
+                <div class="input-group">
+                    <label class="sr-only" for="date">Descrição</label>
+                    <input class="default-input" type="date" name="date" id="date">
+                </div>
+            </div>
+        </div>
     </main>
     <footer class="main-footer">
         <img src="assets/img/logo.svg" alt="logo dev.finance">

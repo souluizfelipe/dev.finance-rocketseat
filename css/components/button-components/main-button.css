@@ -1,0 +1,31 @@
+.main-button {
+    box-sizing: border-box;
+    height: 48px;
+    width: 100%;
+    border-radius: .25rem;
+    margin-right: 1rem;
+}
+
+.main-button.-transparent-border {
+    border: 2px solid var(--color-eighth);
+    color: var(--color-eighth);
+    opacity: 0.6;
+}
+
+.main-button.-transparent-border:hover {
+    opacity: 1;
+}
+
+.main-button.-color-noborder {
+    background-color: var(--color-fifth);
+    color: var(--color-first);
+    opacity: 0.8;
+}
+
+.main-button.-color-noborder:hover {
+    opacity: 1;
+}
+
+.main-button:last-of-type {
+    margin-right: 0;
+}

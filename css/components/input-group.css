@@ -1,0 +1,4 @@
+.input-group.-actions {
+    display: flex;
+    flex-direction: row;
+}

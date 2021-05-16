@@ -1,0 +1,15 @@
+.main-modal {
+    background-color: var(--color-second);
+    padding: 2rem;
+    width: max(500px 90%) ;
+    box-sizing: border-box;
+    border-radius: .25rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+.main-modal .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}

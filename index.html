@@ -26,8 +26,9 @@
     <link rel="stylesheet" href="css/components/modal-componets/modal-add-transaction.css">
     <link rel="stylesheet" href="css/components/modal-componets/main-modal.css">
     <link rel="stylesheet" href="css/components/input-components/default-input.css">
-    <link rel="stylesheet" href="css/components/input-components/input-group.css">
+    <link rel="stylesheet" href="css/components/input-group.css">
     <link rel="stylesheet" href="css/components/input-components/input-small-text.css">
+    <link rel="stylesheet" href="css/components/button-components/main-button.css">
     <link rel="stylesheet" href="css/components/main-footer.css">
 
     <link rel="stylesheet" href="css/responsive.css">
@@ -63,7 +64,7 @@
         </section>
         <section class="transaction-section">
             <h2 class="section-title sr-only">Transações</h2>
-            <a class="main-action -add" href="#">+ Nova Transação</a>
+            <a class="main-action -add" href="#" onclick="modal.open()">+ Nova Transação</a>
             <div class="table-container">
                 <table class="data-table">
                     <thead class="data-table-head">
@@ -114,10 +115,15 @@
                 <label class="sr-only" for="date">Descrição</label>
                 <input class="default-input" type="date" name="date" id="date">
             </div>
+            <div class="input-group -actions">
+                <button class="main-button -transparent-border" onclick="modal.close()">Cancelar</button>
+                <button class="main-button -color-noborder" type="submit">Salvar</button>
+            </div>
         </div>
     </div>
     <footer class="main-footer">
         <img src="assets/img/logo.svg" alt="logo dev.finance">
     </footer>
+    <script src="js/components/modal-add-transaction.js"></script>
 </body>
 </html>

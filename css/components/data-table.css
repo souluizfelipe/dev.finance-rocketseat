@@ -27,4 +27,11 @@
     opacity: 1;
 }
 
+.data-table-data.-income {
+    color: var(--color-fifth);
+}
+
+.data-table-data.-expense {
+    color: var(--color-eighth);
+}
 

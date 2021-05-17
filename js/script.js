@@ -6,3 +6,4 @@ const modal = {
         document.querySelector('.modal-add-transaction').classList.remove('-active')
     }
 };
+

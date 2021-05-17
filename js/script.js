@@ -16,14 +16,32 @@ const transaction = [
     },
     {
         id: 2,
+        description: 'aluguel',
+        amount: -100000,
+        date: '17/05/2021',
+    },
+    {
+        id: 3,
+        description: 'job',
+        amount: 200000,
+        date: '17/05/2021',
+    },
+    {
+        id: 4,
         description: 'mercado',
-        amount: -12000,
+        amount: -20000,
         date: '17/05/2021',
     },
 
 ];
 
-const transactions = {
+const displayTransactions = {
+    all: transaction,
+
+    add(transaction) {
+        transaction.all.push(transaction);
+    },
+
     income() {
         let income = 0; 
         transaction.forEach(transaction => {
@@ -45,7 +63,7 @@ const transactions = {
     },
 
     total() {
-        return transactions.income() + transactions.expense();
+        return displayTransactions.income() + displayTransactions.expense();
     }
 };
 
@@ -71,9 +89,9 @@ const DOM = {
     },
 
     updateBalance() {
-        document.querySelector('#income').innerHTML = utils.formatCurrency(transactions.income());
-        document.querySelector('#expense').innerHTML = utils.formatCurrency(transactions.expense());
-        document.querySelector('#total').innerHTML =  utils.formatCurrency(transactions.total());
+        document.querySelector('#income').innerHTML = utils.formatCurrency(displayTransactions.income());
+        document.querySelector('#expense').innerHTML = utils.formatCurrency(displayTransactions.expense());
+        document.querySelector('#total').innerHTML =  utils.formatCurrency(displayTransactions.total());
     },
 };
 
@@ -96,4 +114,5 @@ transaction.forEach(transaction => {
     DOM.addTransaction(transaction);
 });
 
-DOM.updateBalance();
+DOM.updateBalance(); 
+

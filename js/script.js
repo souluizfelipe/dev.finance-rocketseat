@@ -88,7 +88,7 @@ const DOM = {
         <td class="data-table-data -description">${transaction.description}</td>
         <td class="data-table-data ${cssClass}">${amount}</td>
         <td class="data-table-data -date">${transaction.date}</td>
-        <td class="data-table-data"><a href="#"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
+        <td class="data-table-data"><a href="#" onclick="displayTransactions.remove()"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
         `;
         return html;
     },
@@ -144,6 +144,12 @@ const Form = {
 
         try {
             Form.verifyFields();
+            // formatar os dados para salvar
+            // salvar os dados
+            // apagar os dados do formulário
+            // fechar o formulário
+            // atualizar o app
+
         } catch (error) {
             alert(error.message);
         }

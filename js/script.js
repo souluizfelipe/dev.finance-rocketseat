@@ -42,6 +42,11 @@ const displayTransactions = {
         App.reload();
     },
 
+    remove(index) {
+        displayTransactions.all.splice(index, 1);
+        App.reload();
+    },
+
     income() {
         let income = 0; 
         displayTransactions.all.forEach(transaction => {
@@ -113,6 +118,38 @@ const utils = {
 
 };
 
+const Form = {
+    description: document.querySelector("input#description"),
+    amount: document.querySelector('input#amount'),
+    date: document.querySelector('input#date'),
+
+    getValues() {
+        return {
+            description: Form.description.value,
+            amount: Form.amount.value,
+            date: Form.amount.value,
+        };
+    },
+
+    verifyFields() {
+        const {description, amount, date} = Form.getValues();
+        if (description.trim() === '' || amount.trim() === '' || date.trim() === '' ) {
+            throw new Error('Por favor preencha todos os campos.')  
+        };
+
+    },
+
+    submit(event){
+        event.preventDefault();
+
+        try {
+            Form.verifyFields();
+        } catch (error) {
+            alert(error.message);
+        }
+    },
+}
+
 const App = {
     init() {
         displayTransactions.all.forEach(transaction => {
@@ -130,17 +167,3 @@ const App = {
 
 
 App.init();
-
-
-displayTransactions.add({
-    id: 5,
-    description: 'música',
-    amount: -2000,
-    date: '17/05/2021',
-}); 
-displayTransactions.add({
-    id: 6,
-    description: 'limpeza',
-    amount: -15000,
-    date: '18/05/2021',
-}); 

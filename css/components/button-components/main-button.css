@@ -4,6 +4,9 @@
     width: 100%;
     border-radius: .25rem;
     margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-button.-transparent-border {
@@ -26,6 +29,6 @@
     opacity: 1;
 }
 
-.main-button:last-of-type {
+.main-button:last-child {
     margin-right: 0;
 }

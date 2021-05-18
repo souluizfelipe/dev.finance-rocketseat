@@ -83,7 +83,7 @@
     <div class="modal-add-transaction">
         <div class="main-modal">
             <h2 class="section-title">Nova Transação</h2>
-            <form action="" onsubmit="Form.submit(envet)">
+            <form action="" onsubmit="Form.submit(event)">
                 <div class="input-group">
                     <label class="sr-only" for="description">Descrição</label>
                     <input class="default-input" type="text" name="description" id="description" placeholder="Descrição">
@@ -98,7 +98,7 @@
                     <input class="default-input" type="date" name="date" id="date">
                 </div>
                 <div class="input-group -actions">
-                    <button class="main-button -transparent-border" onclick="modal.close()">Cancelar</button>
+                    <a class="main-button -transparent-border" onclick="modal.close()">Cancelar</a>
                     <button class="main-button -color-noborder" type="submit">Salvar</button>
                 </div>
             </form>

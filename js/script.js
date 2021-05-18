@@ -7,7 +7,7 @@ const modal = {
     }
 };
 
-const transaction = [
+const transactions = [
     {
         id: 1,
         description: 'job',
@@ -22,7 +22,7 @@ const transaction = [
     },
     {
         id: 3,
-        description: 'job',
+        description: 'trampo',
         amount: 200000,
         date: '17/05/2021',
     },
@@ -32,19 +32,19 @@ const transaction = [
         amount: -20000,
         date: '17/05/2021',
     },
-
 ];
 
 const displayTransactions = {
-    all: transaction,
+    all: transactions,
 
     add(transaction) {
-        transaction.all.push(transaction);
+        displayTransactions.all.push(transaction);
+        App.reload();
     },
 
     income() {
         let income = 0; 
-        transaction.forEach(transaction => {
+        displayTransactions.all.forEach(transaction => {
             if (transaction.amount > 0) {
                 income += transaction.amount;
             };
@@ -54,7 +54,7 @@ const displayTransactions = {
 
     expense() {
         let expense = 0;
-        transaction.forEach(transaction => {
+        displayTransactions.all.forEach(transaction => {
             if (transaction.amount < 0) {
                 expense += transaction.amount;
             };
@@ -93,6 +93,10 @@ const DOM = {
         document.querySelector('#expense').innerHTML = utils.formatCurrency(displayTransactions.expense());
         document.querySelector('#total').innerHTML =  utils.formatCurrency(displayTransactions.total());
     },
+
+    clearTransactions() {
+        DOM.transactionContainer.innerHTML = '';
+    },
 };
 
 const utils = {
@@ -109,10 +113,34 @@ const utils = {
 
 };
 
+const App = {
+    init() {
+        displayTransactions.all.forEach(transaction => {
+            DOM.addTransaction(transaction);
+        });
 
-transaction.forEach(transaction => {
-    DOM.addTransaction(transaction);
-});
+        DOM.updateBalance(); 
+    },
+    reload() {
+        DOM.clearTransactions();
+        App.init();
+    },
+};
 
-DOM.updateBalance(); 
 
+
+App.init();
+
+
+displayTransactions.add({
+    id: 5,
+    description: 'música',
+    amount: -2000,
+    date: '17/05/2021',
+}); 
+displayTransactions.add({
+    id: 6,
+    description: 'limpeza',
+    amount: -15000,
+    date: '18/05/2021',
+}); 

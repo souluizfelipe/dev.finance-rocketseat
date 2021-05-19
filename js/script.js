@@ -108,7 +108,10 @@ const DOM = {
 const utils = {
 
     formatAmount(value) {
-        value = Number(value.replace(/\,\./g, '')) * 100;
+        value = String(value).replace(/\,/g, '');
+        value = String(value).replace(/\./g, '');      
+        value = Number(value);
+        console.log(value);
         return value;
     },
 
@@ -156,7 +159,7 @@ const Form = {
         let {description, amount, date} = Form.getValues();
         amount = utils.formatAmount(amount);
         date = utils.formatDate(date);
-        console.log(description, amount, date);
+        // console.log(description, amount, date);
         return {
             description,
             amount,
@@ -164,7 +167,7 @@ const Form = {
     },
 
     saveTransaction(transaction) {
-        displayTransactions.add(transaction, index);
+        displayTransactions.add(transaction);
     },
 
     clearFields() {
@@ -177,7 +180,7 @@ const Form = {
         event.preventDefault();
 
         try {
-            Form.verifyFields();
+            // Form.verifyFields();
             const newTransaction = Form.formatValues();
             Form.saveTransaction(newTransaction);
             Form.clearFields();
@@ -191,7 +194,9 @@ const Form = {
 
 const App = {
     init() {
-        displayTransactions.all.forEach(DOM.addTransaction);
+        displayTransactions.all.forEach((transaction, index) => {
+            DOM.addTransaction(transaction, index)
+        });
         DOM.updateBalance(); 
     },
     reload() {

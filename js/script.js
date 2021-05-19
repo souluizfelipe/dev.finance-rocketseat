@@ -77,18 +77,19 @@ const DOM = {
 
     addTransaction(transaction, index) {
         const tr = document.createElement('tr');
-        tr.innerHTML = DOM.innerHTMLTransaciton(transaction);
+        tr.innerHTML = DOM.innerHTMLTransaciton(transaction, index);
+        tr.dataset.index = index;
         DOM.transactionContainer.appendChild(tr).classList.add('data-table-row');
     },
     
-    innerHTMLTransaciton(transaction) {
+    innerHTMLTransaciton(transaction, index) {
         const cssClass = transaction.amount > 0 ? '-income' : '-expense';
         const amount = utils.formatCurrency(transaction.amount);
         const html = `
         <td class="data-table-data -description">${transaction.description}</td>
         <td class="data-table-data ${cssClass}">${amount}</td>
         <td class="data-table-data -date">${transaction.date}</td>
-        <td class="data-table-data"><a href="#" onclick="displayTransactions.remove()"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
+        <td class="data-table-data"><a href="#" onclick="displayTransactions.remove(${index})"><img src="assets/img/minus.svg" alt="remover transação"></a></td>
         `;
         return html;
     },
@@ -105,6 +106,17 @@ const DOM = {
 };
 
 const utils = {
+
+    formatAmount(value) {
+        value = Number(value.replace(/\,\./g, '')) * 100;
+        return value;
+    },
+
+    formatDate(date) {
+        const splitedDate = date.split('-');
+        return `${splitedDate[2]}/${splitedDate[1]}/${splitedDate[0]}`;
+    },
+
     formatCurrency(value) {
         const signal = Number(value) < 0 ? '-' : '';
         value = String(value).replace(/\D/g, '');
@@ -115,6 +127,7 @@ const utils = {
         }); 
         return signal + value;
     },
+
 
 };
 
@@ -127,7 +140,7 @@ const Form = {
         return {
             description: Form.description.value,
             amount: Form.amount.value,
-            date: Form.amount.value,
+            date: Form.date.value,
         };
     },
 
@@ -139,16 +152,36 @@ const Form = {
 
     },
 
+    formatValues() {
+        let {description, amount, date} = Form.getValues();
+        amount = utils.formatAmount(amount);
+        date = utils.formatDate(date);
+        console.log(description, amount, date);
+        return {
+            description,
+            amount,
+            date};
+    },
+
+    saveTransaction(transaction) {
+        displayTransactions.add(transaction, index);
+    },
+
+    clearFields() {
+        Form.description.value = '';
+        Form.amount.value = '';
+        Form.date.value = '';
+    },
+
     submit(event){
         event.preventDefault();
 
         try {
             Form.verifyFields();
-            // formatar os dados para salvar
-            // salvar os dados
-            // apagar os dados do formulário
-            // fechar o formulário
-            // atualizar o app
+            const newTransaction = Form.formatValues();
+            Form.saveTransaction(newTransaction);
+            Form.clearFields();
+            modal.close();           
 
         } catch (error) {
             alert(error.message);
@@ -158,10 +191,7 @@ const Form = {
 
 const App = {
     init() {
-        displayTransactions.all.forEach(transaction => {
-            DOM.addTransaction(transaction);
-        });
-
+        displayTransactions.all.forEach(DOM.addTransaction);
         DOM.updateBalance(); 
     },
     reload() {
@@ -169,7 +199,5 @@ const App = {
         App.init();
     },
 };
-
-
 
 App.init();

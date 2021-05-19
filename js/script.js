@@ -7,35 +7,44 @@ const modal = {
     }
 };
 
-const transactions = [
-    {
-        id: 1,
-        description: 'job',
-        amount: 200000,
-        date: '17/05/2021',
+// const transactions = [
+//     {
+//         id: 1,
+//         description: 'job',
+//         amount: 200000,
+//         date: '17/05/2021',
+//     },
+//     {
+//         id: 2,
+//         description: 'aluguel',
+//         amount: -100000,
+//         date: '17/05/2021',
+//     },
+//     {
+//         id: 3,
+//         description: 'trampo',
+//         amount: 200000,
+//         date: '17/05/2021',
+//     },
+//     {
+//         id: 4,
+//         description: 'mercado',
+//         amount: -20000,
+//         date: '17/05/2021',
+//     },
+// ];
+
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem('dev.finance: transactions')) || [];
+    },  
+    set(transactions) {
+        localStorage.setItem('dev.finance: transactions', JSON.stringify(transactions));
     },
-    {
-        id: 2,
-        description: 'aluguel',
-        amount: -100000,
-        date: '17/05/2021',
-    },
-    {
-        id: 3,
-        description: 'trampo',
-        amount: 200000,
-        date: '17/05/2021',
-    },
-    {
-        id: 4,
-        description: 'mercado',
-        amount: -20000,
-        date: '17/05/2021',
-    },
-];
+}
 
 const displayTransactions = {
-    all: transactions,
+    all: Storage.get(),
 
     add(transaction) {
         displayTransactions.all.push(transaction);
@@ -159,7 +168,6 @@ const Form = {
         let {description, amount, date} = Form.getValues();
         amount = utils.formatAmount(amount);
         date = utils.formatDate(date);
-        // console.log(description, amount, date);
         return {
             description,
             amount,
@@ -180,7 +188,7 @@ const Form = {
         event.preventDefault();
 
         try {
-            // Form.verifyFields();
+            Form.verifyFields();
             const newTransaction = Form.formatValues();
             Form.saveTransaction(newTransaction);
             Form.clearFields();
@@ -194,10 +202,9 @@ const Form = {
 
 const App = {
     init() {
-        displayTransactions.all.forEach((transaction, index) => {
-            DOM.addTransaction(transaction, index)
-        });
+        displayTransactions.all.forEach(DOM.addTransaction);
         DOM.updateBalance(); 
+        Storage.set(displayTransactions.all)
     },
     reload() {
         DOM.clearTransactions();
